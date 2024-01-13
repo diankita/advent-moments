@@ -1,28 +1,30 @@
 'use server';
 
-import { redirect } from "next/navigation";
-import connectDB from "./models";
-import Calendar from "./models/calendar";
-import CalendarDay from "./models/calendar-day";
-
-let calId;
+import {redirect} from 'next/navigation';
+import connectDB from './models';
+import Calendar from './models/calendar';
+import {getCalendarById} from './data';
 
 export async function createCalendar(formData) {
   await connectDB();
 
-  const newCalendar = new Calendar ({
+  const newCalendar = new Calendar({
     title: formData.get('title'),
     author: formData.get('author'),
   });
 
-  const newCalendarDay = {
-    text: '',
-    imageUrl: '',
-  };
-  //TODO create Array - fill with 24 days and forEach -> push to newCalendar  
+  let daysArr = new Array(24).fill();
+  daysArr.forEach((day, index) => {
+    const updatedCalendarDay = {
+      dayNumber: index + 1,
+      text: '',
+      imageUrl: '',
+    };
+    daysArr[index] = updatedCalendarDay;
+  });
 
-  newCalendar.calendarDays.push(newCalendarDay);
-  console.log(newCalendar)
+  newCalendar.calendarDays = [...daysArr];
+  console.log(newCalendar);
 
   try {
     if (!newCalendar.title || !newCalendar.author) {
@@ -35,32 +37,35 @@ export async function createCalendar(formData) {
     throw new Error('Failed to create data.');
   }
 
-  redirect(`/edit/${newCalendar.id}/days`)
+  redirect(`/edit/${newCalendar.id}/days`);
 }
 
-console.log(calId)
-
-export async function createCalendarDay(formData) {
+export async function updateCalendarDay(calendarId, index, formData) {
   await connectDB();
 
-  const newCalendarDay = new CalendarDay({
-    text: formData.get('msg'),
-    imageUrl: formData.get('image_url'),
-    calendar: calId,
-  });
-  console.log(newCalendarDay);
-  console.log(newCalendarDay.calendar)
+  const calendar = await getCalendarById(calendarId);
+
+  console.log(calendarId);
+  console.log(index);
 
   try {
-    if (!newCalendarDay.text) {
+
+    let updatedCalendarDay = calendar.calendarDays[index];
+    if (updatedCalendarDay.text = '') {
       console.log('Missing message');
     } else {
-      await newCalendarDay.save();
-    }
+      updatedCalendarDay.text = formData.get('msg');
+      updatedCalendarDay.imageUrl = formData.get('image_url');
+      updatedCalendarDay.lastViewedAt = Date.now();
+  
+      await calendar.save();
+
+    };
+
   } catch (error) {
     console.log('Error creating data', error);
     throw new Error('Failed to create data.');
   }
 
-  // redirect(`/edit/${newCalendarDay.calendarId}/days`);
+  redirect(`/edit/${calendarId}/days`);
 }

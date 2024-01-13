@@ -24,3 +24,7 @@ export async function getCalendarById(id) {
     throw new Error('Failed to fetch data.');
   }
 }
+
+export async function getCalendarDays () {
+  const cal = getCalendarById()
+}

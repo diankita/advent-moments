@@ -5,8 +5,7 @@ import DayCard from '@/app/ui/edit/day-card';
 export default async function Page({params}) {
   const calendarId = params.id;
   const calendar = await getCalendarById(calendarId);
-  // console.log(calendar)
-  const dayCards = new Array(24);
+  console.log(calendar.calendarDays[23])
   // console.log(dayCards);
   // const card = {
   //   title: title
@@ -14,17 +13,18 @@ export default async function Page({params}) {
   // const [cards, setCards] = useState()
 
   return (
-    <main>
+    <main className='m-5'>
       <div>
         <p>Calendar info</p>
-        <p>ID: {calendar.id}</p>
+        <p>Calendar ID: {calendar.id}</p>
         <div>Title: {calendar.title}</div>
         <div>Author: {calendar.author}</div>
       </div>
-      <DayCard />
-      {dayCards.map((_, index) => (
-        <DayCard key={index} dayNb={index + 1} calendarId={calendarId} />
+      <div className='mt-5'>
+      {calendar.calendarDays.map((_, index) => (
+        <DayCard key={index} index={index} calendarId={calendarId} />
       ))}
+      </div>
     </main>
   );
 }

@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 export const calendarDaySchema = new mongoose.Schema({
-  // _id: {type: mongoose.Schema.Types.ObjectId},
   dayNumber: {type: Number},
   text: {type: String},
   imageUrl: {type: String},

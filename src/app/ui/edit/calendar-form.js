@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { createCalendar } from "@/app/lib/actions";
+import Link from 'next/link';
+import {createCalendar} from '@/app/lib/actions';
 
-export default function CalendarForm () {
+export default function CalendarForm() {
   return (
     <form action={createCalendar}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">

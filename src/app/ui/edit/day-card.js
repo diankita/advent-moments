@@ -4,13 +4,13 @@ import {Fragment, useRef, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import DayForm from './day-form';
 
-export default function DayCard({dayNb, calendarId}) {
+export default function DayCard({index, calendarId}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
   const cancelButtonRef = useRef(null);
 
   return (
-    <div>
+    <div className="mb-5">
       <div onClick={handleOpen}>
         <div className="p-6 max-w-sm mx-auto bg-slate-100 rounded-xl shadow-lg flex items-center space-x-4">
           <div className="shrink-0">
@@ -20,8 +20,8 @@ export default function DayCard({dayNb, calendarId}) {
             /> */}
           </div>
           <div>
-            <div className="text-xl font-medium text-black">DAY {dayNb}</div>
-            <p className="text-slate-500">Entered text</p>
+            <div className="text-xl font-medium text-black">DAY {index + 1}</div>
+            <p className="text-slate-500">Entered text - TBD</p>
           </div>
         </div>
       </div>
@@ -61,10 +61,10 @@ export default function DayCard({dayNb, calendarId}) {
                     <div className="sm:flex sm:items-start">
                       <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                         <Dialog.Title
-                          as="h3"
+                          // as="h3"
                           className="text-base font-semibold leading-6 text-gray-900"
                         >
-                          DAY
+                          DAY {index + 1}
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
@@ -72,7 +72,11 @@ export default function DayCard({dayNb, calendarId}) {
                             one? Additionally, you can enter the URL or an image
                             that you want to share.
                           </p>
-                          <DayForm handleOpen={handleOpen} calendarId={calendarId} />
+                          <DayForm
+                            handleOpen={handleOpen}
+                            calendarId={calendarId}
+                            index={index}
+                          />
                         </div>
                       </div>
                     </div>

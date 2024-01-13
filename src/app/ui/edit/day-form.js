@@ -1,8 +1,11 @@
-import { createCalendarDay } from "@/app/lib/actions";
+import { updateCalendarDay } from "@/app/lib/actions";
 
-export default function DayForm({handleOpen, calendarId}) {
+export default function DayForm ({ handleOpen, calendarId, index }) {
+  const updateCalendarDaywithId = updateCalendarDay.bind(null, calendarId);
+  const updateCalFinal = updateCalendarDaywithId.bind(null, index);
+
   return (
-    <form action={createCalendarDay}>
+    <form action={updateCalFinal}>
       <div className="rounded-md my-4 p-4 md:p-6">
         <div className="mb-5">
           <label htmlFor="msg" className="mb-2 block text-g font-medium">

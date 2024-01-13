@@ -1,5 +1,5 @@
 import CalendarForm from "@/app/ui/edit/calendar-form";
-import CalendarList from "../ui/edit/calendar-list";
+import CalendarList from "@/app/ui/edit/calendar-list";
 
 export default function Page () {
   return (

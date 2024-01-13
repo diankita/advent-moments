@@ -4,7 +4,7 @@ import {Fragment, useRef, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import DayForm from './day-form';
 
-export default function DayCard({index, calendarId}) {
+export default function DayCard({calDay, index, calendarId}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
   const cancelButtonRef = useRef(null);
@@ -20,8 +20,10 @@ export default function DayCard({index, calendarId}) {
             /> */}
           </div>
           <div>
-            <div className="text-xl font-medium text-black">DAY {index + 1}</div>
-            <p className="text-slate-500">Entered text - TBD</p>
+            <div className="text-xl font-medium text-black">
+              DAY {index + 1}
+            </div>
+            <p className="text-slate-500">X</p>
           </div>
         </div>
       </div>
@@ -69,7 +71,7 @@ export default function DayCard({index, calendarId}) {
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
                             What message do you want to share with your loved
-                            one? Additionally, you can enter the URL or an image
+                            one? Additionally, you can enter the URL of an image
                             that you want to share.
                           </p>
                           <DayForm

@@ -25,6 +25,5 @@ export async function getCalendarById(id) {
   }
 }
 
-export async function getCalendarDays () {
-  const cal = getCalendarById()
+export async function getDayInfo () {
 }

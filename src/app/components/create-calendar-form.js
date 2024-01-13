@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {createCalendar} from '@/app/lib/actions';
 
-export default function CalendarForm() {
+export default function CreateCalendarForm() {
   return (
     <form action={createCalendar}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
@@ -16,7 +16,7 @@ export default function CalendarForm() {
             placeholder="Enter the title of your calendar"
             required
             autoComplete="off"
-            className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+            className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           ></input>
         </div>
         <div className="mb-5">
@@ -30,7 +30,7 @@ export default function CalendarForm() {
             placeholder="Enter your name"
             required
             autoComplete="off"
-            className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+            className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           ></input>
         </div>
       </div>

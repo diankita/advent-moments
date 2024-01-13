@@ -4,6 +4,7 @@ import {redirect} from 'next/navigation';
 import connectDB from './models';
 import Calendar from './models/calendar';
 import {getCalendarById} from './data';
+import {revalidatePath} from 'next/cache';
 
 export async function createCalendar(formData) {
   await connectDB();
@@ -24,13 +25,13 @@ export async function createCalendar(formData) {
   });
 
   newCalendar.calendarDays = [...daysArr];
-  console.log(newCalendar);
 
   try {
     if (!newCalendar.title || !newCalendar.author) {
       console.log('Missing entries');
     } else {
       await newCalendar.save();
+      console.log(newCalendar, 'when created from create action');
     }
   } catch (error) {
     console.log('Error creating data', error);
@@ -40,28 +41,54 @@ export async function createCalendar(formData) {
   redirect(`/edit/${newCalendar.id}/days`);
 }
 
+export async function editCalendar(calendarId, formData) {
+  await connectDB();
+
+  console.log(calendarId, 'id from edit action');
+  console.log(formData.get('title'), 'new title from edit action');
+
+  // const editedCalendar = editCalendar({
+  //   title: formData.get('title'),
+  //   author: formData.get('author'),
+  // });
+
+  // const calendar = await getCalendarById(calendarId);
+
+  try {
+    const editedCalendar = await Calendar.findByIdAndUpdate(calendarId, {
+      title: formData.get('title'),
+      author: formData.get('author'),
+    });
+    await editedCalendar.save();
+    console.log(editedCalendar, 'from edit action');
+  } catch (error) {
+    console.log('Error editing data', error);
+    throw new Error('Failed to edit data.');
+  }
+  revalidatePath(`/edit/${calendarId}/days`);
+  redirect(`/edit/${calendarId}/days`);
+}
+
 export async function updateCalendarDay(calendarId, index, formData) {
   await connectDB();
 
   const calendar = await getCalendarById(calendarId);
 
-  console.log(calendarId);
-  console.log(index);
+  console.log(calendarId, 'from update day action');
+  console.log(index, 'from update day action');
 
   try {
-
     let updatedCalendarDay = calendar.calendarDays[index];
-    if (updatedCalendarDay.text = '') {
+    if ((updatedCalendarDay.text = '')) {
       console.log('Missing message');
     } else {
       updatedCalendarDay.text = formData.get('msg');
       updatedCalendarDay.imageUrl = formData.get('image_url');
       updatedCalendarDay.lastViewedAt = Date.now();
-  
+
       await calendar.save();
-
-    };
-
+      console.log(calendar, 'from update day action');
+    }
   } catch (error) {
     console.log('Error creating data', error);
     throw new Error('Failed to create data.');

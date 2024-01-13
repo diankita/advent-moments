@@ -14,10 +14,10 @@ export default function DayForm ({ handleOpen, calendarId, index }) {
           <textarea
             id="msg"
             name="msg"
-            rows={3}
+            rows={5}
             placeholder="Enter your message"
             required
-            className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+            className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           />
         </div>
         <div className="mb-5">
@@ -30,7 +30,7 @@ export default function DayForm ({ handleOpen, calendarId, index }) {
             name="image_url"
             type="url"
             placeholder="Enter an image URL"
-            className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+            className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           />
         </div>
         <div className="d:none" name='calendar_id' value={calendarId}></div>

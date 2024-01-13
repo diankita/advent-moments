@@ -16,7 +16,7 @@ export default function Homepage() {
         (and more sustainable 🌱)
       </h1>
       <Link
-        href="/edit"
+        href="/create"
         className="flex h-10 items-center rounded-lg bg-green-500 px-6 text-sm font-medium text-white transition-colors hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
       >
         Create one

@@ -1,17 +1,22 @@
-// import {useEffect, useState} from 'react';
 import {getCalendarById} from '@/app/lib/data';
 import DayCard from '@/app/components/day-card';
 import Link from 'next/link';
 
 export default async function Page({params}) {
   const calendarId = params.id;
+
   const calendar = await getCalendarById(calendarId);
-  // console.log(calendar.calendarDays[23].text);
-  // console.log(dayCards);
-  // const card = {
-  //   title: title
-  // }
-  // const [cards, setCards] = useState()
+  const calendarDays = calendar.calendarDays;
+
+  const renderedCards = calendarDays.map((calendarDay, index) => (
+    <DayCard
+      key={index}
+      index={index}
+      calendarId={calendarId}
+      text={calendarDay.text}
+      
+    />
+  ));
 
   return (
     <main className="m-5">
@@ -22,12 +27,10 @@ export default async function Page({params}) {
         <div>Author: {calendar.author}</div>
       </div>
       <Link href={`/edit/${calendarId}`}>
-        <button className='bg-red-200'>GO BACK</button>
+        <button className="bg-red-200">GO BACK</button>
       </Link>
       <div className="mt-5">
-        {calendar.calendarDays.map((_, index) => (
-          <DayCard key={index} index={index} calendarId={calendarId} />
-        ))}
+        {renderedCards}
       </div>
     </main>
   );

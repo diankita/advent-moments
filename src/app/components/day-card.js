@@ -4,7 +4,7 @@ import {Fragment, useRef, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import DayForm from './day-form';
 
-export default function DayCard({calDay, index, calendarId}) {
+export default function DayCard({index, calendarId, text}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
   const cancelButtonRef = useRef(null);
@@ -14,16 +14,16 @@ export default function DayCard({calDay, index, calendarId}) {
       <div onClick={handleOpen}>
         <div className="p-6 max-w-sm mx-auto bg-slate-100 rounded-xl shadow-lg flex items-center space-x-4">
           <div className="shrink-0">
-            {/* <img
+            <img
               className="h-16 w-16"
-              src="https://www.youtube.com/watch?v=zLyeWSfTMa8&list=PLC3y8-rFHvwi1AXijGTKM0BKtHzVC-LSK&index=7&ab_channel=Codevolution"
-            /> */}
+              src="https://tse1.mm.bing.net/th?id=OIP.Wx-LCIeN0EXmEtlLI6KGcAHaEe&pid=Api"
+            />
           </div>
           <div>
             <div className="text-xl font-medium text-black">
               DAY {index + 1}
             </div>
-            <p className="text-slate-500">X</p>
+            <p className="text-slate-500">{text}</p>
           </div>
         </div>
       </div>
@@ -78,6 +78,7 @@ export default function DayCard({calDay, index, calendarId}) {
                             handleOpen={handleOpen}
                             calendarId={calendarId}
                             index={index}
+                            text={text}
                           />
                         </div>
                       </div>
@@ -98,8 +99,8 @@ export default function DayCard({calDay, index, calendarId}) {
                       ref={cancelButtonRef}
                     >
                       Cancel
-                    </button>
-                  </div> */}
+                    </button> 
+                  </div>  */}
                 </Dialog.Panel>
               </Transition.Child>
             </div>

@@ -31,7 +31,7 @@ export async function createCalendar(formData) {
       console.log('Missing entries');
     } else {
       await newCalendar.save();
-      console.log(newCalendar, 'when created from create action');
+      // console.log(test, 'when created from create action');
     }
   } catch (error) {
     console.log('Error creating data', error);
@@ -79,16 +79,12 @@ export async function updateCalendarDay(calendarId, index, formData) {
 
   try {
     let updatedCalendarDay = calendar.calendarDays[index];
-    if ((updatedCalendarDay.text = '')) {
-      console.log('Missing message');
-    } else {
-      updatedCalendarDay.text = formData.get('msg');
-      updatedCalendarDay.imageUrl = formData.get('image_url');
-      updatedCalendarDay.lastViewedAt = Date.now();
 
-      await calendar.save();
-      console.log(calendar, 'from update day action');
-    }
+    updatedCalendarDay.text = formData.get('msg');
+    updatedCalendarDay.imageUrl = formData.get('image_url');
+
+    await calendar.save();
+    console.log(calendar, 'from update day action');
   } catch (error) {
     console.log('Error creating data', error);
     throw new Error('Failed to create data.');

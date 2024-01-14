@@ -1,12 +1,12 @@
-import { editCalendar } from "../lib/actions";
-import Link from "next/link";
+import {editCalendar} from '../lib/actions';
+import Link from 'next/link';
 
-export default function EditCalendarForm ({ calendar }) {
-  console.log(calendar.title, 'title from edit form')
+export default function EditCalendarForm({calendar}) {
+  console.log(calendar.title, 'title from edit form');
   const id = calendar.id;
-  console.log(id, 'id from edit form')
+  console.log(id, 'id from edit form');
 
-  const editCalendarWithId = editCalendar.bind(null, calendar.id)
+  const editCalendarWithId = editCalendar.bind(null, calendar.id);
   return (
     <form action={editCalendarWithId}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">

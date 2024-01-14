@@ -5,7 +5,8 @@ export const calendarDaySchema = new mongoose.Schema({
   text: {type: String},
   imageUrl: {type: String},
   videoUrl: {type: String},
-  lastViewedAt: {type: Date, default: Date.now},
+  lastViewedAt: { type: Date, default: Date.now },
+  // calendarId: {type: String, required: true}
 });
 
 const CalendarDay =

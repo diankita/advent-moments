@@ -10,30 +10,19 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
   const cancelButtonRef = useRef(null);
 
   return (
-    <div>
+    <>
       <div
         onClick={handleOpen}
-        className="mb-5 p-5 size-56 mx-auto rounded-xl shadow-lg  space-x-4"
+        className="mb-5 mx-auto rounded-md shadow-lg box-border size-40 bg-slate-100"
       >
-        {/* use imageURL to show the image on the edit days page */ }
-        
-        {/* <div
-          className="bg-cover bg-center"
-          style="background-image: url(https://tse1.mm.bing.net/th?id=OIP.Wx-LCIeN0EXmEtlLI6KGcAHaEe&pid=Api)"
-        ></div> */}
-
-        {/* <div className="shrink-0"> */}
-
-        {/* <img
-            className="object-cover"
-            src="https://tse1.mm.bing.net/th?id=OIP.Wx-LCIeN0EXmEtlLI6KGcAHaEe&pid=Api"
-          /> */}
-        {/* </div> */}
-        <div>
-          <div className="text-xl font-medium text-black bg-slate-100">
-            DAY {index + 1}
-          </div>
-          <p className="text-slate-500">{text}</p>
+        <div className="text-xl font-medium text-black bg-slate-500 h-8 text-center rounded-t-md inline- align-middle">
+          DAY {index + 1}
+        </div>
+        <div
+          className="w-full h-32 bg-no-repeat bg-cover flex opacity-80 rounded-b-md"
+          style={{backgroundImage: `url(${imageUrl})`}}
+        >
+          <p className="px-2 truncate font-semibold text-white drop-shadow-md">{text}</p>
         </div>
       </div>
 
@@ -70,7 +59,7 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                   <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
-                      <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                      <div className="text-center sm:ml-4 sm:mt-0 sm:text-left">
                         <Dialog.Title
                           // as="h3"
                           className="text-base font-semibold leading-6 text-gray-900"
@@ -79,8 +68,8 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                            What message do you want to share with your loved
-                            one? Additionally, you can enter the URL of an image
+                            What do you want to tell your loved
+                            one(s)? Additionally, you can enter the URL of an image
                             that you want to share.
                           </p>
                           <DayForm
@@ -100,6 +89,6 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
           </div>
         </Dialog>
       </Transition.Root>
-    </div>
+    </>
   );
 }

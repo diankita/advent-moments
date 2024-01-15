@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 import {calendarDaySchema} from './calendar-day';
 
-//TODO add published at
 const CalendarSchema = new mongoose.Schema({
   title: {type: String, required: true},
   author: {type: String, required: true},
   startDate: {type: Date, default: Date.now},
+  publishedAt: { type: Date },
   calendarDays: [calendarDaySchema],
 });
 

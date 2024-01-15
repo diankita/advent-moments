@@ -6,7 +6,7 @@ export default function DayForm ({ handleOpen, calendarId, index, text, imageUrl
 
   return (
     <form action={updateCalFinal} onSubmit={handleOpen}>
-      <div className="rounded-md my-4 p-4 md:p-6">
+      <div className="rounded-md p-4 md:p-6">
         <div className="mb-5">
           <label htmlFor="msg" className="mb-2 block text-g font-medium">
             Your message
@@ -14,7 +14,7 @@ export default function DayForm ({ handleOpen, calendarId, index, text, imageUrl
           <textarea
             id="msg"
             name="msg"
-            rows={5}
+            rows={6}
             placeholder="Enter your message"
             required
             defaultValue={text}
@@ -35,7 +35,7 @@ export default function DayForm ({ handleOpen, calendarId, index, text, imageUrl
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           />
         </div>
-        <div className="d:none" name="calendar_id" value={calendarId}></div>
+        <img src={ imageUrl } className="max-w-[80%] max-h-48 mx-auto" />
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <button

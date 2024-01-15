@@ -10,14 +10,14 @@ export default function Homepage() {
         width={500}
         height={620}
       />
-      <h1 className="text-xl text-center text-green-50">
+      <h1 className="text-xl text-center">
         Advent calendars are awesome
         <br />
         (and more sustainable 🌱)
       </h1>
       <Link
         href="/create"
-        className="flex items-center rounded-lg bg-green-500 py-4 px-8 text-md font-medium text-white transition-colors hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+        className="flex items-center rounded-lg bg-green-500 py-4 px-8 text-lg font-semibold text-white transition-colors hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
       >
         Create one
       </Link>

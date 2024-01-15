@@ -2,22 +2,23 @@
 
 import {Fragment, useRef, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
-import DayForm from './day-form';
 
-export default function DayCard({index, calendarId, text, imageUrl}) {
+export default function DayCard({dayNb, calendarId, text, imageUrl}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
   const cancelButtonRef = useRef(null);
 
   return (
-    <div>
+    <>
       <div
         onClick={handleOpen}
-        className="mb-5 p-5 size-56 mx-auto rounded-xl shadow-lg  space-x-4"
+        className="mb-5 p-5 mx-auto size-40 rounded-xl shadow-lg flex flex-col justify-center items-center bg-red-800"
       >
-        <div>
-          <div className="text-3xl font-medium text-black">DAY {index + 1}</div>
+        <img src='/calendar-icon.png' />
+        <div className="text-3xl font-mediumtext-center">
+          {dayNb}
         </div>
+        {/* <img src="/ball-1.png" className="size-24" /> */}
       </div>
 
       <Transition.Root show={open} as={Fragment}>
@@ -51,22 +52,27 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                  <div className="bg-slate-600 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
                       <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                        <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
-                          DAY {index + 1}
+                        <Dialog.Title className="text-base font-semibold leading-6 text-white">
+                          DAY {dayNb}
                         </Dialog.Title>
                         <div className="mt-2">
-                          <p className="text-sm text-gray-500">{text}</p>
+                          <img
+                            src={imageUrl}
+                            className="max-w-[80%] max-h-48 mx-auto"
+                          />
+                          <p className="font-semibold">Message for you: </p>
+                          <p className="text-sm text-slate-400">{text}</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                  <div className="bg-slate-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <button
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                      className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
                       onClick={handleOpen}
                     >
                       Close
@@ -78,6 +84,6 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
           </div>
         </Dialog>
       </Transition.Root>
-    </div>
+    </>
   );
 }

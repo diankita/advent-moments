@@ -29,7 +29,7 @@ export default async function Page({params}) {
       <Link href={`/edit/${calendarId}`}>
         <button className="bg-red-200">GO BACK</button>
       </Link>
-      <div className="mt-5">{renderedCards}</div>
+      <div className="mt-5 flex flex-wrap">{renderedCards}</div>
     </main>
   );
 }

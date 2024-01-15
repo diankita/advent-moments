@@ -4,27 +4,36 @@ import {Fragment, useRef, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import DayForm from './day-form';
 
-export default function DayCard({index, calendarId, text}) {
+export default function DayCard({index, calendarId, text, imageUrl}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
   const cancelButtonRef = useRef(null);
 
   return (
-    <div className="mb-5">
-      <div onClick={handleOpen}>
-        <div className="p-6 max-w-sm mx-auto bg-slate-100 rounded-xl shadow-lg flex items-center space-x-4">
-          <div className="shrink-0">
-            <img
-              className="h-16 w-16"
-              src="https://tse1.mm.bing.net/th?id=OIP.Wx-LCIeN0EXmEtlLI6KGcAHaEe&pid=Api"
-            />
+    <div>
+      <div
+        onClick={handleOpen}
+        className="mb-5 p-5 size-56 mx-auto rounded-xl shadow-lg  space-x-4"
+      >
+        {/* use imageURL to show the image on the edit days page */ }
+        
+        {/* <div
+          className="bg-cover bg-center"
+          style="background-image: url(https://tse1.mm.bing.net/th?id=OIP.Wx-LCIeN0EXmEtlLI6KGcAHaEe&pid=Api)"
+        ></div> */}
+
+        {/* <div className="shrink-0"> */}
+
+        {/* <img
+            className="object-cover"
+            src="https://tse1.mm.bing.net/th?id=OIP.Wx-LCIeN0EXmEtlLI6KGcAHaEe&pid=Api"
+          /> */}
+        {/* </div> */}
+        <div>
+          <div className="text-xl font-medium text-black bg-slate-100">
+            DAY {index + 1}
           </div>
-          <div>
-            <div className="text-xl font-medium text-black">
-              DAY {index + 1}
-            </div>
-            <p className="text-slate-500">{text}</p>
-          </div>
+          <p className="text-slate-500">{text}</p>
         </div>
       </div>
 
@@ -79,28 +88,12 @@ export default function DayCard({index, calendarId, text}) {
                             calendarId={calendarId}
                             index={index}
                             text={text}
+                            imageUrl={imageUrl}
                           />
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/* <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button
-                      type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                      onClick={handleOpen}
-                    >
-                      Save
-                    </button>
-                    <button
-                      type="button"
-                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                      onClick={handleOpen}
-                      ref={cancelButtonRef}
-                    >
-                      Cancel
-                    </button> 
-                  </div>  */}
                 </Dialog.Panel>
               </Transition.Child>
             </div>

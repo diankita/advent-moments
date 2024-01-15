@@ -17,7 +17,7 @@ export default function Homepage() {
       </h1>
       <Link
         href="/create"
-        className="flex h-10 items-center rounded-lg bg-green-500 px-6 text-sm font-medium text-white transition-colors hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+        className="flex items-center rounded-lg bg-green-500 py-4 px-8 text-md font-medium text-white transition-colors hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
       >
         Create one
       </Link>

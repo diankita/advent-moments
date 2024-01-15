@@ -2,9 +2,7 @@ import {editCalendar} from '../lib/actions';
 import Link from 'next/link';
 
 export default function EditCalendarForm({calendar}) {
-  console.log(calendar.title, 'title from edit form');
   const id = calendar.id;
-  console.log(id, 'id from edit form');
 
   const editCalendarWithId = editCalendar.bind(null, calendar.id);
   return (

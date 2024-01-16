@@ -30,7 +30,7 @@ export default async function Page({params}) {
   const today = new Date('2024-01-10').getDate();
 
   return (
-    <main className="m-4 bg-emerald-900">
+    <main className="p-4 bg-emerald-900">
       <div>
         <p>THIS IS YOUR CALENDAR</p>
         <div>Title: {calendar.title}</div>

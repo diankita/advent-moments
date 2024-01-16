@@ -32,7 +32,6 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
         <Dialog
           as="div"
           className="relative z-10"
-          initialFocus={cancelButtonRef}
           onClose={setOpen}
         >
           <Transition.Child
@@ -59,7 +58,7 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                  <div className="bg-slate-50 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
                       <div className="text-center sm:ml-4 sm:mt-0 sm:text-left">
                         <Dialog.Title

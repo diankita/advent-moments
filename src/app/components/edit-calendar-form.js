@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function EditCalendarForm({calendar}) {
   const id = calendar.id;
 
-  const editCalendarWithId = editCalendar.bind(null, calendar.id);
+  const editCalendarWithId = editCalendar.bind(null, id);
   return (
     <form action={editCalendarWithId}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">

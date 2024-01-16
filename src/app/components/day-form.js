@@ -1,6 +1,12 @@
-import { updateCalendarDay } from "@/app/lib/actions";
+import {updateCalendarDay} from '@/app/lib/actions';
 
-export default function DayForm ({ handleOpen, calendarId, index, text, imageUrl }) {
+export default function DayForm({
+  handleOpen,
+  calendarId,
+  index,
+  text,
+  imageUrl,
+}) {
   const updateCalendarDaywithId = updateCalendarDay.bind(null, calendarId);
   const updateCalFinal = updateCalendarDaywithId.bind(null, index);
 
@@ -35,7 +41,7 @@ export default function DayForm ({ handleOpen, calendarId, index, text, imageUrl
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           />
         </div>
-        <img src={ imageUrl } className="max-w-[80%] max-h-48 mx-auto" />
+        <img src={imageUrl} className="max-w-[80%] max-h-48 mx-auto" />
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <button

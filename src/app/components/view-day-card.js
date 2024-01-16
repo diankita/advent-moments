@@ -2,23 +2,32 @@
 
 import {Fragment, useRef, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
+import {updateCalendarDay} from '../lib/actions';
+import {getCalendarById} from '../lib/data';
 
 export default function DayCard({dayNb, calendarId, text, imageUrl}) {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(!open);
+  const today = new Date('2024-01-10').getDate();
+  const handleOpen = () => {
+    if (today >= dayNb) {
+      setOpen(!open);
+    } else {
+      alert('Not the right day');
+    }
+  };
+
   const cancelButtonRef = useRef(null);
 
   return (
     <>
       <div
         onClick={handleOpen}
-        className="mb-5 p-5 mx-auto size-40 rounded-xl shadow-lg flex flex-col justify-center items-center bg-red-800"
+        className={`mb-5 p-5 mx-auto size-40 rounded-xl shadow-lg flex flex-col justify-center items-center ${
+          today >= dayNb ? 'bg-green-400/30' : 'bg-red-800'
+        }`}
       >
-        <img src='/calendar-icon.png' />
-        <div className="text-3xl font-mediumtext-center">
-          {dayNb}
-        </div>
-        {/* <img src="/ball-1.png" className="size-24" /> */}
+        <img src={`${today >= dayNb ? '/day-open.png' : '/day-closed.png'}`} />
+        <div className={`text-3xl font-medium text-center`}>{dayNb}</div>
       </div>
 
       <Transition.Root show={open} as={Fragment}>
@@ -72,7 +81,7 @@ export default function DayCard({dayNb, calendarId, text, imageUrl}) {
                   <div className="bg-slate-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <button
                       type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
+                      className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto outline-none"
                       onClick={handleOpen}
                     >
                       Close

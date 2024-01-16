@@ -13,16 +13,18 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
     <>
       <div
         onClick={handleOpen}
-        className="mb-5 mx-auto rounded-md shadow-lg box-border size-40 bg-slate-100"
+        className="mb-5 mx-auto rounded-md shadow-lg box-border size-40 bg-slate-100/30"
       >
         <div className="text-xl font-medium text-black bg-slate-500 h-8 text-center rounded-t-md inline- align-middle">
           DAY {index + 1}
         </div>
         <div
-          className="w-full h-32 bg-no-repeat bg-cover flex opacity-80 rounded-b-md"
+          className="w-full h-32 bg-no-repeat bg-cover flex opacity-30 rounded-b-md"
           style={{backgroundImage: `url(${imageUrl})`}}
         >
-          <p className="px-2 truncate font-semibold text-white drop-shadow-md">{text}</p>
+          <p className="px-2 truncate font-semibold drop-shadow-md z-50 text-white">
+            {text}
+          </p>
         </div>
       </div>
 
@@ -68,9 +70,9 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                            What do you want to tell your loved
-                            one(s)? Additionally, you can enter the URL of an image
-                            that you want to share.
+                            What do you want to tell your loved one(s)?
+                            Additionally, you can enter the URL of an image that
+                            you want to share.
                           </p>
                           <DayForm
                             handleOpen={handleOpen}

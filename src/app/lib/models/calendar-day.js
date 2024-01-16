@@ -5,11 +5,11 @@ export const calendarDaySchema = new mongoose.Schema({
   text: {type: String},
   imageUrl: {type: String},
   videoUrl: {type: String},
-  lastViewedAt: { type: Date, default: Date.now },
+  lastViewedAt: {type: Date}
   // calendarId: {type: String, required: true}
 });
 
 const CalendarDay =
-  mongoose.models.CalendarDay ||
+  mongoose.models?.CalendarDay ||
   mongoose.model('CalendarDay', calendarDaySchema);
 export default CalendarDay;

@@ -20,6 +20,7 @@ export async function createCalendar(formData) {
       dayNumber: index + 1,
       text: '',
       imageUrl: '',
+      lastViewedAt: '',
     };
     daysArr[index] = updatedCalendarDay;
   });
@@ -73,9 +74,6 @@ export async function updateCalendarDay(calendarId, index, formData) {
   await connectDB();
 
   const calendar = await getCalendarById(calendarId);
-
-  console.log(calendarId, 'from update day action');
-  console.log(index, 'from update day action');
 
   try {
     let updatedCalendarDay = calendar.calendarDays[index];

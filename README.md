@@ -18,8 +18,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Tech stack used
 
 Front End:
-- React, NextJS, TailwindCSS,  a couple of Material-UI components
+- React, NextJS, TailwindCSS,  a couple of Material-UI components.
 
 Back End:
-- NextJS, MongoDB, Mongoose
+- NextJS, MongoDB, Mongoose.
 

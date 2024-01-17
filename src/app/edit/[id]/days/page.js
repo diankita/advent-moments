@@ -39,7 +39,7 @@ export default async function Page({params}) {
           href={`/edit/${calendarId}`}
           className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
         >
-          Cancel
+          Back
         </Link>
         <Link
           href={`/edit/${calendarId}/share`}

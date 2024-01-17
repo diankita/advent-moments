@@ -7,9 +7,12 @@ export default function EditCalendarForm({calendar}) {
   const editCalendarWithId = editCalendar.bind(null, id);
   return (
     <form action={editCalendarWithId}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
-        <div className="mb-5">
-          <label htmlFor="title" className="mb-2 block text-lg font-medium">
+      <div className="rounded-md mt-10">
+        <div className="mb-6">
+          <label
+            htmlFor="title"
+            className="mb-2 block text-lg font-medium text-green-700"
+          >
             Calendar title
           </label>
           <input
@@ -23,8 +26,11 @@ export default function EditCalendarForm({calendar}) {
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           ></input>
         </div>
-        <div className="mb-5">
-          <label htmlFor="author" className="mb-2 block text-lg font-medium">
+        <div className="mb-6">
+          <label
+            htmlFor="author"
+            className="mb-2 block text-lg font-medium text-green-700"
+          >
             Calendar author
           </label>
           <input
@@ -39,16 +45,16 @@ export default function EditCalendarForm({calendar}) {
           ></input>
         </div>
       </div>
-      <div className="mt-6 flex justify-end gap-4">
+      <div className="mt-8 flex justify-end gap-6">
         <Link
-          href="/"
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
+          href="/onboarding"
+          className="flex h-10 items-center rounded-lg bg-gray-200 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-300"
         >
           Cancel
         </Link>
         <button
-          className="'flex h-10 items-center rounded-lg bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50'"
           type="submit"
+          className="flex h-10 items-center rounded-lg bg-green-700 px-4 text-sm font-medium text-white transition-colors hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 active:bg-green-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50"
         >
           Next
         </button>
@@ -56,3 +62,5 @@ export default function EditCalendarForm({calendar}) {
     </form>
   );
 }
+
+

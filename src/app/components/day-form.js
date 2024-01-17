@@ -14,7 +14,10 @@ export default function DayForm({
     <form action={updateCalFinal} onSubmit={handleOpen}>
       <div className="rounded-md p-4 md:p-6">
         <div className="mb-5">
-          <label htmlFor="msg" className="mb-2 block text-g font-medium">
+          <label
+            htmlFor="msg"
+            className="mb-2 block text-g font-medium text-green-700"
+          >
             Your message
           </label>
           <textarea
@@ -28,7 +31,10 @@ export default function DayForm({
           />
         </div>
         <div className="mb-5">
-          <label htmlFor="image_url" className="mb-2 block text-g font-medium">
+          <label
+            htmlFor="image_url"
+            className="mb-2 block text-g font-medium text-green-700"
+          >
             Image URL
             <span className="text-sm italic text-gray-400"> (optional)</span>
           </label>
@@ -36,6 +42,7 @@ export default function DayForm({
             id="title"
             name="image_url"
             type="url"
+            autoComplete='off'
             placeholder="Enter an image URL"
             defaultValue={imageUrl}
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
@@ -47,15 +54,15 @@ export default function DayForm({
         <button
           type="button"
           onClick={handleOpen}
-          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
+          className="flex h-10 items-center rounded-lg bg-gray-200 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-300"
         >
           Cancel
         </button>
         <button
-          className="'flex h-10 items-center rounded-lg bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50'"
+          className="'flex h-10 items-center rounded-lg bg-green-700 px-4 text-sm font-medium text-white transition-colors hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-green-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50'"
           type="submit"
         >
-          Next
+          Save
         </button>
       </div>
     </form>

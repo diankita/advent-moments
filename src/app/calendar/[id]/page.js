@@ -31,10 +31,9 @@ export default async function Page({params}) {
 
   return (
     <main className="p-4 bg-emerald-900">
-      <div>
-        <p>THIS IS YOUR CALENDAR</p>
-        <div>Title: {calendar.title}</div>
-        <div>By: {calendar.author}</div>
+      <div className="border-dashed border-2 border-green-50 text-green-50 p-2 mx-5">
+        <div className="text-3xl text-center">{calendar.title}</div>
+        <div className="text-xl text-end italic">By {calendar.author}</div>
       </div>
       <div className="mt-5 flex flex-wrap">{renderedCards}</div>
     </main>

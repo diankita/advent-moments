@@ -1,22 +1,18 @@
 'use client';
 
-import {Fragment, useRef, useState} from 'react';
+import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
-import {updateCalendarDay} from '../lib/actions';
-import {getCalendarById} from '../lib/data';
 
 export default function DayCard({dayNb, calendarId, text, imageUrl}) {
   const [open, setOpen] = useState(false);
-  const today = new Date('2024-01-10').getDate();
+  const today = new Date('2024-01-04').getDate();
   const handleOpen = () => {
     if (today >= dayNb) {
       setOpen(!open);
     } else {
-      alert(`You have to wait until Dec ${dayNb} to open this card 🙂`)
+      alert(`You have to wait until Dec ${dayNb} to open this card 🙂`);
     }
   };
-
-  const cancelButtonRef = useRef(null);
 
   return (
     <>
@@ -27,15 +23,13 @@ export default function DayCard({dayNb, calendarId, text, imageUrl}) {
         }`}
       >
         <img src={`${today >= dayNb ? '/day-open.png' : '/day-closed.png'}`} />
-        <div className={`text-3xl font-medium text-center`}>{dayNb}</div>
+        <div className={`text-3xl font-medium text-center text-green-50`}>
+          {dayNb}
+        </div>
       </div>
 
       <Transition.Root show={open} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-10"
-          onClose={setOpen}
-        >
+        <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -59,33 +53,35 @@ export default function DayCard({dayNb, calendarId, text, imageUrl}) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-slate-200 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-neutral-100 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                  <div className="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
                       <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                        <Dialog.Title className="text-base font-semibold leading-6 text-white">
+                        <Dialog.Title className="text-2xl font-semibold text-green-700">
                           DAY {dayNb}
                         </Dialog.Title>
-                        <div className="mt-2">
+                        <div className="my-3">
                           <img
                             src={imageUrl}
-                            className="max-w-[80%] max-h-48 mx-auto"
+                            className="max-w-full max-h-48 mx-auto mb-3"
                           />
-                          <p className="font-semibold">Message for you: </p>
-                          <p className="text-sm text-slate-400">{text}</p>
+                          <p className="font-semibold text-lg">
+                            Message for you:{' '}
+                          </p>
+                          <p className="text-sm text-gray-800">{text}</p>
                         </div>
                       </div>
                     </div>
+                  <button
+                    type="button"
+                    className="inline-flex w-full justify-center rounded-md bg-green-700 mt-3 px-3 py-2 text-sm font-semibold text-white
+                      transition-colors hover:bg-green-600 shadow-sm sm:ml-3 sm:w-auto outline-none"
+                    onClick={handleOpen}
+                  >
+                    Close
+                  </button>
                   </div>
-                  <div className="bg-slate-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button
-                      type="button"
-                      className="inline-flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto outline-none"
-                      onClick={handleOpen}
-                    >
-                      Close
-                    </button>
-                  </div>
+
                 </Dialog.Panel>
               </Transition.Child>
             </div>

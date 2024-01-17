@@ -1,39 +1,33 @@
 'use client';
 
-import {Fragment, useRef, useState} from 'react';
+import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import DayForm from './day-form';
 
 export default function DayCard({index, calendarId, text, imageUrl}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
-  const cancelButtonRef = useRef(null);
 
   return (
     <>
       <div
         onClick={handleOpen}
-        className="mb-5 mx-auto rounded-md shadow-lg box-border size-40 bg-slate-100/30"
+        className="mb-5 mx-auto rounded-md shadow-lg box-border size-40 bg-white relative"
       >
-        <div className="text-xl font-medium text-black bg-slate-500 h-8 text-center rounded-t-md inline- align-middle">
+        <div className="text-xl leading-normal font-medium text-white bg-green-700 h-8 text-center rounded-t-md align-middle">
           DAY {index + 1}
         </div>
         <div
-          className="w-full h-32 bg-no-repeat bg-cover flex opacity-30 rounded-b-md"
+          className="w-full h-32 bg-no-repeat bg-cover flex rounded-b-md opacity-40 "
           style={{backgroundImage: `url(${imageUrl})`}}
-        >
-          <p className="px-2 truncate font-semibold drop-shadow-md z-50 text-white">
-            {text}
-          </p>
-        </div>
+        ></div>
+        <p className="p-2 text-clip overflow-hidden text-sm absolute top-6 h-32">
+          {text}
+        </p>
       </div>
 
       <Transition.Root show={open} as={Fragment}>
-        <Dialog
-          as="div"
-          className="relative z-10"
-          onClose={setOpen}
-        >
+        <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -57,18 +51,17 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-slate-50 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-neutral-100 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                  <div className="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
                       <div className="text-center sm:ml-4 sm:mt-0 sm:text-left">
                         <Dialog.Title
-                          // as="h3"
-                          className="text-base font-semibold leading-6 text-gray-900"
+                          className="text-2xl font-semibold text-green-700"
                         >
                           DAY {index + 1}
                         </Dialog.Title>
                         <div className="mt-2">
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-gray-800">
                             What do you want to tell your loved one(s)?
                             Additionally, you can enter the URL of an image that
                             you want to share.

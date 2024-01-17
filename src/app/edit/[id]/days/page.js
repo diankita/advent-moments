@@ -19,17 +19,35 @@ export default async function Page({params}) {
   ));
 
   return (
-    <main className="m-5">
-      <div>
-        <p>Calendar info</p>
-        <p>Calendar ID: {calendar.id}</p>
-        <div>Title: {calendar.title}</div>
-        <div>Author: {calendar.author}</div>
+    <div className="p-4">
+      <h1 className="text-3xl font-bold mt-6">Add messages and photos</h1>
+      <div className="mt-4 text-lg">
+        ✍️ Title: <span className="font-semibold">{calendar.title}</span>
       </div>
-      <Link href={`/edit/${calendarId}`}>
-        <button className="bg-red-200">GO BACK</button>
-      </Link>
+      <div className="mt-2 text-lg">
+        {' '}
+        👤 Author: <span className="font-semibold">{calendar.author}</span>
+      </div>
+      <p className="text-sm text-gray-600 mt-2">
+        PS: You can also come back and continue later, your progress will be
+        saved
+      </p>
       <div className="mt-5 flex flex-wrap">{renderedCards}</div>
-    </main>
+
+      <div className="mt-8 flex justify-end gap-6">
+        <Link
+          href={`/edit/${calendarId}`}
+          className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
+        >
+          Cancel
+        </Link>
+        <Link
+          href={`/edit/${calendarId}/share`}
+          className="flex h-10 items-center rounded-lg bg-green-700 px-4 text-sm font-medium text-white transition-colors hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 active:bg-green-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50"
+        >
+          Next
+        </Link>
+      </div>
+    </div>
   );
 }

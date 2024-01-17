@@ -10,7 +10,7 @@ export default function Page() {
       <Image
         className="pt-10"
         src="/logo-onboarding.png"
-        alt="app-logo"
+        alt="Advent moments logo"
         width={500}
         height={620}
       />

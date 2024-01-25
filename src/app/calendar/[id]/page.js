@@ -1,4 +1,3 @@
-// src/calendar/[id]/page.js
 import { getCalendarById } from "@/app/lib/data";
 import DayCard from "@/app/components/view-day-card";
 

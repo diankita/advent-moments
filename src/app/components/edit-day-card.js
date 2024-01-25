@@ -14,8 +14,8 @@ export default function DayCard({ index, calendarId, text, imageUrl }) {
       <div
         onClick={handleOpen}
         onKeyDown={(e) => e.key === "Enter" && handleOpen()}
-        role="button" // Accessibility: Making the div act as a button
-        tabIndex={0} // Accessibility: Making the div focusable
+        role="button" // 🟢 Accessibility: Making the div act as a button
+        tabIndex={0} // 🟢 Accessibility: Making the div focusable
         aria-label={`Day ${index + 1} card`} // Accessibility: Providing an accessible label
         className="mb-5 mx-auto rounded-md shadow-lg box-border size-40 bg-white relative"
       >
@@ -25,7 +25,7 @@ export default function DayCard({ index, calendarId, text, imageUrl }) {
         <div
           className="w-full h-32 bg-no-repeat bg-cover flex rounded-b-md opacity-40 "
           style={{ backgroundImage: `url(${imageUrl})` }}
-          role="img" // Accessibility: Specifying the role for the image container
+          role="img" // 🟢 Accessibility: Specifying the role for the image container
           aria-label={`Background image for Day ${index + 1}`} // Accessibility: Providing an accessible label for the image
         ></div>
         <p className="p-2 text-clip overflow-hidden text-sm absolute top-6 h-32">

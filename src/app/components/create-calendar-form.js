@@ -5,7 +5,7 @@ export default function CreateCalendarForm() {
   return (
     <form action={createCalendar}>
       <div className="rounded-md mt-10">
-        {/* Accessibility: Grouping each input with its label for better screen reader support */}
+        {/* 🟢 Accessibility: Grouping each input with its label for better screen reader support */}
         <div className="mb-6">
           <label
             htmlFor="title"
@@ -21,10 +21,10 @@ export default function CreateCalendarForm() {
             required
             autoComplete="off"
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
-            // Accessibility: Adding aria-describedby to link the input with instructions or requirements
+            // 🟢 Accessibility: Adding aria-describedby to link the input with instructions or requirements
             aria-describedby="titleInstructions"
           ></input>
-          {/* Accessibility: Adding instructions or requirements for the input */}
+          {/* 🟢 Accessibility: Adding instructions or requirements for the input */}
           <p id="titleInstructions" className="sr-only">
             Enter a title for your calendar, this field is required.
           </p>
@@ -53,18 +53,22 @@ export default function CreateCalendarForm() {
         </div>
       </div>
       <div className="mt-8 flex justify-end gap-6">
-        {/* Accessibility: Providing a clear label for links acting as buttons */}
         <Link
           href="/onboarding"
-          className="flex h-10 items-center rounded-lg bg-gray-200 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-300"
+          className="flex h-10 items-center rounded-lg bg-gray-200 px-4 text-sm font-medium
+           text-gray-600 transition-colors hover:bg-gray-300"
+          // 🟢 Accessibility: Adding an aria-label for better understanding of the button's purpose
           aria-label="Cancel and return to the previous page"
         >
           Cancel
         </Link>
         <button
           type="submit"
-          className="flex h-10 items-center rounded-lg bg-green-700 px-4 text-sm font-medium text-white transition-colors hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500 active:bg-green-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50"
-          // Accessibility: Adding an aria-label for better understanding of the button's purpose
+          className="flex h-10 items-center rounded-lg bg-green-700 px-4 text-sm
+           font-medium text-white transition-colors hover:bg-green-600 focus-visible:outline
+            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500
+             active:bg-green-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50"
+          // 🟢 Accessibility: Adding an aria-label for better understanding of the button's purpose
           aria-label="Submit the form to create a new calendar"
         >
           Next

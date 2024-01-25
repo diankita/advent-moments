@@ -30,7 +30,7 @@ export default function DayForm({
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
             aria-describedby="messageInstructions"
           />
-          {/* Accessibility: Adding instructions for the textarea */}
+          {/* 🟢 Accessibility: Adding instructions for the textarea */}
           <p id="messageInstructions" className="sr-only">
             Write your message here. This field is required.
           </p>
@@ -53,7 +53,7 @@ export default function DayForm({
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           />
         </div>
-        {/* Accessibility: Providing alternative text for dynamically loaded images */}
+        {/* 🟢 Accessibility: Providing alternative text for dynamically loaded images */}
         <img
           src={imageUrl}
           alt={`Image for calendar day ${index + 1}`}

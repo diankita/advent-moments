@@ -9,6 +9,7 @@ const OnboardingStepper = ({ currentPage }) => {
                 currentPage === 1 ? "bg-green-400" : "bg-gray-300"
               }`}
               aria-current={currentPage === 1 ? "step" : undefined}
+              // 🟢
               role="presentation"
               aria-label="Step 1"
             ></div>
@@ -19,6 +20,7 @@ const OnboardingStepper = ({ currentPage }) => {
                 currentPage === 2 ? "bg-green-400" : "bg-gray-300"
               }`}
               aria-current={currentPage === 2 ? "step" : undefined}
+              // 🟢
               role="presentation"
               aria-label="Step 2"
             ></div>

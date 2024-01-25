@@ -1,17 +1,22 @@
-'use client';
+"use client";
 
-import {Fragment, useState} from 'react';
-import {Dialog, Transition} from '@headlessui/react';
-import DayForm from './day-form';
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import DayForm from "./day-form";
 
-export default function DayCard({index, calendarId, text, imageUrl}) {
+export default function DayCard({ index, calendarId, text, imageUrl }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
 
   return (
     <>
+      {/* Day card that opens the dialog */}
       <div
         onClick={handleOpen}
+        onKeyDown={(e) => e.key === "Enter" && handleOpen()}
+        role="button" // Accessibility: Making the div act as a button
+        tabIndex={0} // Accessibility: Making the div focusable
+        aria-label={`Day ${index + 1} card`} // Accessibility: Providing an accessible label
         className="mb-5 mx-auto rounded-md shadow-lg box-border size-40 bg-white relative"
       >
         <div className="text-xl leading-normal font-medium text-white bg-green-700 h-8 text-center rounded-t-md align-middle">
@@ -19,13 +24,16 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
         </div>
         <div
           className="w-full h-32 bg-no-repeat bg-cover flex rounded-b-md opacity-40 "
-          style={{backgroundImage: `url(${imageUrl})`}}
+          style={{ backgroundImage: `url(${imageUrl})` }}
+          role="img" // Accessibility: Specifying the role for the image container
+          aria-label={`Background image for Day ${index + 1}`} // Accessibility: Providing an accessible label for the image
         ></div>
         <p className="p-2 text-clip overflow-hidden text-sm absolute top-6 h-32">
           {text}
         </p>
       </div>
 
+      {/* Dialog for editing the day's details */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
@@ -41,7 +49,7 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-start justify-center p-4 text-center sm:items-center sm:p-0">
+            <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -55,9 +63,7 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
                   <div className="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
                       <div className="text-center sm:ml-4 sm:mt-0 sm:text-left">
-                        <Dialog.Title
-                          className="text-2xl font-semibold text-green-700"
-                        >
+                        <Dialog.Title className="text-2xl font-semibold text-green-700">
                           DAY {index + 1}
                         </Dialog.Title>
                         <div className="mt-2">
@@ -86,3 +92,9 @@ export default function DayCard({index, calendarId, text, imageUrl}) {
     </>
   );
 }
+
+// Accessibility added:
+// The div that represents the day card is now focusable and behaves as a button, meaning it can be interacted with via the keyboard.
+// Added role="button" to make the day card's div identifiable as a button to assistive technologies.
+// Added tabIndex={0} to make the day card's div focusable via keyboard.
+// Added aria-label to the day card's div and the background image container to provide descriptive labels for screen readers.

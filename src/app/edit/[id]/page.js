@@ -1,8 +1,8 @@
-import EditCalendarForm from '@/app/components/edit-calendar-form';
-import {getCalendarById} from '@/app/lib/data';
-import {notFound} from 'next/navigation';
+import EditCalendarForm from "@/app/components/edit-calendar-form";
+import { getCalendarById } from "@/app/lib/data";
+import { notFound } from "next/navigation";
 
-export default async function Page({params}) {
+export default async function Page({ params }) {
   const calendarId = params.id;
   const calendar = await getCalendarById(calendarId);
 
@@ -12,9 +12,18 @@ export default async function Page({params}) {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-bold mt-6">Set up your advent calendar</h1>
-
-      <EditCalendarForm calendar={calendar} />
+      <h1 className="text-3xl font-bold mt-6" id="editCalendarHeader">
+        Set up your advent calendar
+      </h1>
+      {/* Accessibility: Providing context to the form with aria-labelledby */}
+      <EditCalendarForm
+        calendar={calendar}
+        aria-labelledby="editCalendarHeader"
+      />
     </div>
   );
 }
+
+// Added an id to the h1 element to provide a unique identifier.
+// Included aria-labelledby attribute in the EditCalendarForm component,
+// referencing the id of the h1 element. This helps screen readers to associate the form with its heading, providing better context for users.

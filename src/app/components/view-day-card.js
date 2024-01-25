@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import {Fragment, useState} from 'react';
-import {Dialog, Transition} from '@headlessui/react';
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
-export default function DayCard({dayNb, calendarId, text, imageUrl}) {
+export default function DayCard({ dayNb, calendarId, text, imageUrl }) {
   const [open, setOpen] = useState(false);
-  const today = new Date('2024-01-04').getDate();
+  const today = new Date("2024-01-04").getDate();
   const handleOpen = () => {
     if (today >= dayNb) {
       setOpen(!open);
@@ -18,11 +18,20 @@ export default function DayCard({dayNb, calendarId, text, imageUrl}) {
     <>
       <div
         onClick={handleOpen}
+        onKeyDown={(e) => e.key === "Enter" && handleOpen()}
+        role="button"
+        tabIndex={0}
         className={`mb-5 p-5 mx-auto size-40 rounded-md shadow-lg flex flex-col justify-center items-center ${
-          today >= dayNb ? 'bg-green-400/30' : 'bg-red-800'
+          today >= dayNb ? "bg-green-400/30" : "bg-red-800"
+        }`}
+        aria-label={`Day ${dayNb} card, click to ${
+          today >= dayNb ? "open" : "not yet available"
         }`}
       >
-        <img src={`${today >= dayNb ? '/day-open.png' : '/day-closed.png'}`} />
+        <img
+          src={`${today >= dayNb ? "/day-open.png" : "/day-closed.png"}`}
+          alt={`${today >= dayNb ? "Open" : "Closed"} card icon`}
+        />
         <div className={`text-3xl font-medium text-center text-green-50`}>
           {dayNb}
         </div>
@@ -63,25 +72,26 @@ export default function DayCard({dayNb, calendarId, text, imageUrl}) {
                         <div className="my-3">
                           <img
                             src={imageUrl}
+                            alt={`Image for Day ${dayNb}`}
                             className="max-w-full max-h-48 mx-auto mb-3"
                           />
                           <p className="font-semibold text-lg">
-                            Message for you:{' '}
+                            Message for you:{" "}
                           </p>
                           <p className="text-sm text-gray-800">{text}</p>
                         </div>
                       </div>
                     </div>
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-green-700 mt-3 px-3 py-2 text-sm font-semibold text-white
-                      transition-colors hover:bg-green-600 shadow-sm sm:ml-3 sm:w-auto outline-none"
-                    onClick={handleOpen}
-                  >
-                    Close
-                  </button>
+                    <button
+                      type="button"
+                      className="inline-flex w-full justify-center rounded-md bg-green-700 mt-3 px-3 py-2 text-sm font-semibold text-white
+                        transition-colors hover:bg-green-600 shadow-sm sm:ml-3 sm:w-auto outline-none"
+                      onClick={handleOpen}
+                      aria-label="Close the card"
+                    >
+                      Close
+                    </button>
                   </div>
-
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -91,3 +101,8 @@ export default function DayCard({dayNb, calendarId, text, imageUrl}) {
     </>
   );
 }
+
+// Added role="button" and tabIndex={0} to the card container, making it accessible via keyboard navigation and identifiable as a button to screen reader users.
+// Added an onKeyDown handler to allow keyboard interaction (opening the card when the Enter key is pressed).
+// Included aria-label attributes to provide descriptive labels for screen readers, explaining the purpose of the card and the button.
+// Added an alt attribute for each img tag, which is crucial for screen readers to describe the image content.

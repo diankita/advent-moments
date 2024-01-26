@@ -16,14 +16,13 @@ export default async function Page({ params }) {
         Set up your advent calendar
       </h1>
       {/* Accessibility: Providing context to the form with aria-labelledby */}
-      <EditCalendarForm
-        calendar={calendar}
-        aria-labelledby="editCalendarHeader"
-      />
+      aria-labelledby="editCalendarHeader"
+      <EditCalendarForm calendar={calendar} />
     </div>
   );
 }
 
+// Accessibility improvements:
 // Added an id to the h1 element to provide a unique identifier.
 // Included aria-labelledby attribute in the EditCalendarForm component,
 // referencing the id of the h1 element. This helps screen readers to associate the form with its heading, providing better context for users.

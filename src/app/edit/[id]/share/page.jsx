@@ -21,8 +21,6 @@ export default async function Page({ params }) {
         <a
           href={`http://localhost:3000/calendar/${calendarId}`}
           className="text-green-700"
-          // Accessibility: Describing the purpose of the link
-          aria-describedby="publicLinkSection"
         >
           http://localhost:3000/calendar/{calendarId}
         </a>
@@ -49,5 +47,6 @@ export default async function Page({ params }) {
   );
 }
 
+// Accessibility improvements:
 // Used headings (h1 for the page title and h2 for sections) to structure the content semantically, making it easier for screen reader users to understand and navigate the content.
 // Added aria-describedby attributes to links, pointing to the IDs of the headings. This provides screen reader users with more context about the purpose of the links.

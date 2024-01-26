@@ -7,6 +7,7 @@ export default async function Page({ params }) {
   const calendar = await getCalendarById(calendarId);
   const calendarDaysArr = calendar.calendarDays;
 
+  // render the calendar days in random order
   const shuffledDays = [...calendarDaysArr];
   for (let i = shuffledDays.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -19,7 +20,6 @@ export default async function Page({ params }) {
       calendarId={calendarId}
       text={calendarDay.text}
       imageUrl={calendarDay.imageUrl}
-      // 🟢 Accessibility: Providing alternative text for images
       alt={`Calendar day ${calendarDay.dayNumber} image`} // added alt attribute
     />
   ));
@@ -37,7 +37,6 @@ export default async function Page({ params }) {
         {calendar.title} by {calendar.author}
       </h1>
       <div className="border-dashed border-2 border-green-50 text-green-50 p-2 mx-5">
-        {/* 🟢 Added aria-hidden="true" to the text elements that are decorative or duplicated by the h1 to prevent screen readers from reading the same information twice. */}
         <div className="text-3xl text-center" aria-hidden="true">
           {calendar.title}
         </div>
@@ -51,6 +50,6 @@ export default async function Page({ params }) {
 }
 
 // Accessibility added:
-// - alt attribute to images
-// - title and heading structure
-// - aria-hidden="true" to the text elements that are decorative or duplicated by the h1 to prevent screen readers from reading the same information twice.
+// alt attribute to images
+// title and heading structure
+// aria-hidden="true" to the text elements that are decorative or duplicated by the h1 to prevent screen readers from reading the same information twice.

@@ -1,5 +1,5 @@
-import connectDB from "./models";
-import Calendar from "./models/calendar";
+import connectDB from './models';
+import Calendar from './models/calendar';
 
 export async function getAllCalendars() {
   await connectDB();
@@ -8,8 +8,8 @@ export async function getAllCalendars() {
     const calendars = await Calendar.find({});
     return calendars;
   } catch (error) {
-    console.log("Error fetching data", error);
-    throw new Error("Failed to fetch data.");
+    console.log('Error fetching data', error);
+    throw new Error('Failed to fetch data.');
   }
 }
 
@@ -20,9 +20,9 @@ export async function getCalendarById(id) {
     const calendarById = await Calendar.findById(id);
     return calendarById;
   } catch (error) {
-    console.log("Error fetching data", error);
-    throw new Error("Failed to fetch data.");
+    console.log('Error fetching data', error);
+    throw new Error('Failed to fetch data.');
   }
 }
 
-export async function getDayInfo() {}
+//export async function getDayInfo() {}// unused empty function //Rodwell

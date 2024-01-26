@@ -26,7 +26,6 @@ export default function EditCalendarForm({ calendar }) {
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
             aria-describedby="titleEditInstructions"
           ></input>
-          {/*🟢 Accessibility: Adding instructions or requirements for the input */}
           <p id="titleEditInstructions" className="sr-only">
             Edit the title of your calendar, this field is required.
           </p>
@@ -57,6 +56,7 @@ export default function EditCalendarForm({ calendar }) {
       </div>
       <div className="mt-8 flex justify-end gap-6">
         {/* 🟢 Accessibility: Providing a clear label for links acting as buttons */}
+
         <Link
           href="/onboarding"
           className="flex h-10 items-center rounded-lg bg-gray-200 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-300"

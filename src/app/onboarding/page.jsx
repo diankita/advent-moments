@@ -1,6 +1,7 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import OnboardingStepper from "@/app/components/onboarding-stepper";
+import OnboardingStepper from "../components/onboarding-stepper";
 
 export default function Page() {
   const currentPage = 2;
@@ -15,7 +16,7 @@ export default function Page() {
         height={620}
       />
       <div aria-labelledby="onboardingMessage">
-        <h1 id="onboardingMessage" className="text-lg text-center text-white">
+        <h1 className="text-lg text-center text-white">
           <p className="mb-2 font-semibold text-xl">
             Personalize your calendar 👩‍🎨
           </p>
@@ -45,9 +46,3 @@ export default function Page() {
     </main>
   );
 }
-
-// Wrapped the main content in a main tag to define it as the primary content of the document.
-// Added an alt attribute to the Image tag to provide a textual alternative to the image content.
-// Enclosed the main message in a div with aria-labelledby pointing to the id of the h1 element, making the heading's context clearer.
-// Wrapped the navigation links in a nav element with aria-label="Onboarding navigation" to denote it as a navigation section.
-// Added aria-label to links to provide a clear, descriptive label for their actions.

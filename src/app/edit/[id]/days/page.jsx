@@ -1,3 +1,4 @@
+import React from "react";
 import { getCalendarById } from "@/app/lib/data";
 import DayCard from "@/app/components/edit-day-card";
 import Link from "next/link";
@@ -57,6 +58,7 @@ export default async function Page({ params }) {
   );
 }
 
+// Accessibility improvements:
 // Added alt attribute to DayCard image elements to provide alternative text, crucial for screen readers to describe the content of images.
 // Included aria-live="polite" for the container that holds the day cards. This ensures that updates to this content are announced by screen readers in a non-intrusive way.
 // Provided clear, descriptive aria-label attributes for the navigation links to ensure that their purpose is understood by users of assistive technologies.

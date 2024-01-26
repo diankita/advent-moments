@@ -10,7 +10,6 @@ export default function DayCard({ index, calendarId, text, imageUrl }) {
 
   return (
     <>
-      {/* Day card that opens the dialog */}
       <div
         onClick={handleOpen}
         onKeyDown={(e) => e.key === "Enter" && handleOpen()}
@@ -33,7 +32,6 @@ export default function DayCard({ index, calendarId, text, imageUrl }) {
         </p>
       </div>
 
-      {/* Dialog for editing the day's details */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <Transition.Child
@@ -49,7 +47,7 @@ export default function DayCard({ index, calendarId, text, imageUrl }) {
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
+            <div className="flex min-h-full items-start justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"

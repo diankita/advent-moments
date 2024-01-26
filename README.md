@@ -32,7 +32,7 @@
 ### Visual Guidance 👁️👁️
 
 - **App Demo**: Feel free to watch the Demo for this project by visiting this
-[Link](https://www.youtube.com/watch?v=CPnP36TiBUc)
+  [Link](https://www.youtube.com/watch?v=CPnP36TiBUc)
 
 ## API
 
@@ -59,13 +59,13 @@ Note: "Advent Moments" currently does not provide external API access. This sect
 
 | React                                                                                                                        | NextJS                                                                                                                                     | TailwindCSS                                                                                                | Material-UI components                                                                                                         |
 | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" width="150" height="auto" alt="Image" /> | <img src="https://www.rlogical.com/wp-content/uploads/2021/08/Rlogical-Blog-Images-thumbnail.png" width="150" height="auto" alt="Image" /> | <img src="https://files.raycast.com/nwt9ncojkvwmjfkaada8upafvpnu" width="150" height="auto" alt="Image" /> | <img src="https://seeklogo.com/images/M/material-ui-logo-88EC9AE3DB-seeklogo.com.png" width="150" height="auto" alt="Image" />
+| <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" width="150" height="auto" alt="Image" /> | <img src="https://www.rlogical.com/wp-content/uploads/2021/08/Rlogical-Blog-Images-thumbnail.png" width="150" height="auto" alt="Image" /> | <img src="https://files.raycast.com/nwt9ncojkvwmjfkaada8upafvpnu" width="150" height="auto" alt="Image" /> | <img src="https://seeklogo.com/images/M/material-ui-logo-88EC9AE3DB-seeklogo.com.png" width="150" height="auto" alt="Image" /> |
 
 ### Backend:
 
 | NextJS                                                                                                                                     | MongoDB                                                                                                                    | Mongoose                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://www.rlogical.com/wp-content/uploads/2021/08/Rlogical-Blog-Images-thumbnail.png" width="150" height="auto" alt="Image" /> | <img src="https://miro.medium.com/v2/resize:fit:512/1*doAg1_fMQKWFoub-6gwUiQ.png" width="150" height="auto" alt="Image" /> | <img src="https://miro.medium.com/v2/resize:fit:1400/1*rL8Buu7o6jnG-TYV1WubeQ.png" width="150" height="auto" alt="Image" />
+| <img src="https://www.rlogical.com/wp-content/uploads/2021/08/Rlogical-Blog-Images-thumbnail.png" width="150" height="auto" alt="Image" /> | <img src="https://miro.medium.com/v2/resize:fit:512/1*doAg1_fMQKWFoub-6gwUiQ.png" width="150" height="auto" alt="Image" /> | <img src="https://miro.medium.com/v2/resize:fit:1400/1*rL8Buu7o6jnG-TYV1WubeQ.png" width="150" height="auto" alt="Image" /> |
 
 ## Contribution Guidelines
 

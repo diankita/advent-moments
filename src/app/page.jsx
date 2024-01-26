@@ -1,6 +1,7 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import OnboardingStepper from "@/app/components/onboarding-stepper";
+import OnboardingStepper from "./components/onboarding-stepper";
 
 export default function Page() {
   const currentPage = 1;
@@ -15,7 +16,7 @@ export default function Page() {
         height={620}
       />
       <div aria-labelledby="introMessage">
-        <h1 id="introMessage" className="text-xl text-center text-white">
+        <h1 className="text-xl text-center text-white">
           <p className="mb-2 font-semibold">
             Online advent calendars are awesome!
           </p>
@@ -26,7 +27,7 @@ export default function Page() {
         <div className="flex justify-between items-center">
           {/* Accessibility: Providing a hidden label for an element with no visible text */}
           <button
-            className="opacity-0 rounded-lg bg-none py-1 px-2 text-lg text-white transition-colors hover:outline-green-400 focus-visible:outline-green-600"
+            className="opacity-0 rounded-lg bg-none py-1 px-2 text-lg text-white transition-colors hover:outline-green-400    focus-visible:outline-green-600"
             aria-label="Disabled button, no previous step available"
           >
             Next
@@ -45,6 +46,7 @@ export default function Page() {
   );
 }
 
+// Accessibility improvements
 // Added alt attribute to the Image tag to provide a textual alternative to the image content.
 // Enclosed the main message in a div with aria-labelledby pointing to the id of the h1 element, making the heading's context clearer.
 // Wrapped the navigation links in a nav element with aria-label="Onboarding navigation" to denote it as a navigation section.

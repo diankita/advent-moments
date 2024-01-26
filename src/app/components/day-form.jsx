@@ -1,4 +1,4 @@
-import {updateCalendarDay} from '@/app/lib/actions';
+import { updateCalendarDay } from "@/app/lib/actions";
 
 export default function DayForm({
   handleOpen,
@@ -28,7 +28,12 @@ export default function DayForm({
             required
             defaultValue={text}
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
+            aria-describedby="messageInstructions"
           />
+          {/* 🟢 Accessibility: Adding instructions for the textarea */}
+          <p id="messageInstructions" className="sr-only">
+            Write your message here. This field is required.
+          </p>
         </div>
         <div className="mb-5">
           <label
@@ -42,13 +47,17 @@ export default function DayForm({
             id="title"
             name="image_url"
             type="url"
-            autoComplete='off'
+            autoComplete="off"
             placeholder="Enter an image URL"
             defaultValue={imageUrl}
             className="peer block w-full rounded-md border border-gray-200 p-2 text-sm outline-2 placeholder:text-gray-500"
           />
         </div>
-        <img src={imageUrl} className="max-w-[80%] max-h-48 mx-auto" />
+        <img
+          src={imageUrl}
+          alt={`Image for calendar day ${index + 1}`}
+          className="max-w-[80%] max-h-48 mx-auto"
+        />
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <button
@@ -61,6 +70,7 @@ export default function DayForm({
         <button
           className="'flex h-10 items-center rounded-lg bg-green-700 px-4 text-sm font-medium text-white transition-colors hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-green-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50'"
           type="submit"
+          aria-label="Save the entered message and image URL"
         >
           Save
         </button>
@@ -68,3 +78,7 @@ export default function DayForm({
     </form>
   );
 }
+
+// Accessibility added:
+// Adding instructions for the textarea
+// Providing alternative text for dynamically loaded images

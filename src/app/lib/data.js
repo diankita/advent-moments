@@ -25,4 +25,4 @@ export async function getCalendarById(id) {
   }
 }
 
-export async function getDayInfo() {}
+//export async function getDayInfo() {}// unused empty function //Rodwell
